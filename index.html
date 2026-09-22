@@ -342,7 +342,7 @@
             letter-spacing: 1.5px;
             padding: 9px 16px;
             border-radius: 20px;
-            background: transparent; /* خلفية شفافة تماماً */
+            background: transparent;
             border: 1px solid rgba(51, 34, 17, 0.4);
             backdrop-filter: blur(2px);
             transition: all 0.3s ease;
@@ -365,12 +365,12 @@
             <form id="invite-form" class="space-y-4">
                 <div>
                     <label class="block text-sm mb-1 font-semibold text-gray-700">Groom's Name:</label>
-                    <input type="text" id="groom_name_input" value="Mahmoud" placeholder="e.g. Mahmoud" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <input type="text" id="groom_name_input" placeholder="Mahmoud" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
                 
                 <div>
                     <label class="block text-sm mb-1 font-semibold text-gray-700">Bride's Name:</label>
-                    <input type="text" id="bride_name_input" value="Enas" placeholder="e.g. Enas" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <input type="text" id="bride_name_input" placeholder="Enas" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
                 
                 <div>
@@ -417,19 +417,19 @@
         <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/FFF1FC39-7F20-41E0-B2BC-4A55FB5D634E.png" alt="Final Image">
 
         <div class="final-content-container">
-            <div class="final-bride-name" id="disp-bride">Enas</div>
-            <div class="final-groom-name" id="disp-groom">Mahmoud</div>
+            <div class="final-bride-name" id="disp-bride"></div>
+            <div class="final-groom-name" id="disp-groom"></div>
 
             <div class="date-time-section">
-                <div class="dt-box" id="disp-time">PM 02:32</div>
+                <div class="dt-box" id="disp-time">--:--</div>
                 <div class="date-center-box">
-                    <span class="day-num" id="disp-daynum">22</span>
-                    <span class="m-y-text" id="disp-monthyear">SEP<br>2026</span>
+                    <span class="day-num" id="disp-daynum">--</span>
+                    <span class="m-y-text" id="disp-monthyear">---<br>----</span>
                 </div>
-                <div class="dt-box" id="disp-day">TUESDAY</div>
+                <div class="dt-box" id="disp-day">---</div>
             </div>
 
-            <div class="location-name-display" id="disp-locname">Jeddah</div>
+            <div class="location-name-display" id="disp-locname"></div>
 
             <!-- التايمر التنازلي -->
             <div class="countdown-container">
@@ -515,7 +515,6 @@
                 document.getElementById('disp-monthyear').innerHTML = `${monthName}<br>${yearNum}`;
                 document.getElementById('disp-time').innerText = timeStr;
 
-                // تشغيل التايمر
                 startCountdown(eventDateGlobal);
             }
 
