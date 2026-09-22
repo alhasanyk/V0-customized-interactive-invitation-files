@@ -163,14 +163,13 @@ body {
 
 
 /* =========================
-   INVITATION (Full Page)
+   INVITATION
 ========================= */
 
 .invitation {
     display: none;
 
     width: 100%;
-    min-height: 100vh;
 }
 
 .invitation.show {
@@ -185,21 +184,19 @@ body {
    768 × 1365
 
    The card always maintains
-   exactly the same ratio and spans full width.
+   exactly the same ratio.
 */
 
 .card {
     position: relative;
 
     width: 100%;
-    max-width: 100%;
 
     aspect-ratio: 768 / 1365;
 
     overflow: hidden;
 
     background: #eee;
-    margin: 0;
 }
 
 
@@ -503,6 +500,39 @@ body {
 
 
 /* =========================
+   EDIT
+========================= */
+
+.edit-wrapper {
+
+    padding: 18px 20px 25px;
+
+    background: #f5f1ec;
+
+    text-align: center;
+}
+
+.edit-button {
+
+    width: min(300px, 90%);
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #513a2c;
+
+    color: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
    MOBILE FORM
 ========================= */
 
@@ -669,6 +699,12 @@ body {
     </div>
 
 
+    <!--
+       IMPORTANT:
+       onclick is directly attached.
+       This avoids event-listener problems.
+    -->
+
     <button
         type="button"
         class="create-button"
@@ -803,6 +839,21 @@ body {
 
 
         </div>
+
+    </div>
+
+
+    <!-- EDIT -->
+
+    <div class="edit-wrapper">
+
+        <button
+            type="button"
+            class="edit-button"
+            onclick="editInvitation()"
+        >
+            تعديل البيانات
+        </button>
 
     </div>
 
@@ -1033,6 +1084,26 @@ function createInvitation() {
 
 
     /* Go to top */
+
+    window.scrollTo(0, 0);
+}
+
+
+/* ==================================================
+   EDIT INVITATION
+================================================== */
+
+function editInvitation() {
+
+    document.getElementById(
+        "invitation"
+    ).classList.remove("show");
+
+
+    document.getElementById(
+        "formContainer"
+    ).style.display = "block";
+
 
     window.scrollTo(0, 0);
 }
