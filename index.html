@@ -100,7 +100,7 @@
             transition: opacity 0.5s ease;
         }
 
-        /* زر الختم (مرفوع قليلاً، يظهر بنعومة ويختفي بنعومة) */
+        /* زر الختم */
         #playBtn {
             position: absolute;
             top: 52.5%; 
@@ -184,7 +184,7 @@
             transition: all 0.8s ease;
         }
 
-        /* تنسيق عناصر الشاشة الأخيرة (تطابق الصورة المعبأة تماماً) */
+        /* تنسيق عناصر الشاشة الأخيرة مطابقة للصورة بدقة */
         #final-page {
             position: fixed;
         }
@@ -200,52 +200,53 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding-top: 26vh; /* تحديد المسافة من الأعلى لتطابق الصورة المعبأة */
+            padding-top: 30.5vh; 
             text-align: center;
         }
 
         /* أسماء العروسين في الشاشة الأخيرة */
         .final-bride-name {
             font-family: 'Pinyon Script', cursive;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: #3b2a22;
             line-height: 1;
         }
 
         .final-middle-and {
             font-family: 'Pinyon Script', cursive;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: #7a6558;
-            margin: 4px 0;
+            margin: 2px 0;
         }
 
         .final-groom-name {
             font-family: 'Pinyon Script', cursive;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: #3b2a22;
             line-height: 1;
-            margin-bottom: 3.5rem;
+            margin-bottom: 2.8rem;
         }
 
-        /* قسم التاريخ والوقت واليوم متطابق مع الصورة المعبأة */
+        /* قسم التاريخ والوقت واليوم متطابق تماماً مع صورتك */
         .date-time-section {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2.8rem;
-            width: 80%;
-            max-width: 400px;
+            gap: 1.2rem;
+            margin-bottom: 2.4rem;
+            width: 90%;
+            max-width: 420px;
         }
 
         .dt-box {
             font-family: 'Cinzel', serif;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 600;
             color: #3b2a22;
-            letter-spacing: 1px;
-            width: 90px;
+            letter-spacing: 0.5px;
+            width: 110px;
             text-align: center;
+            white-space: nowrap;
         }
 
         .date-center-box {
@@ -253,12 +254,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 90px;
+            width: 70px;
         }
 
         .date-center-box .day-num {
             font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #3b2a22;
             line-height: 1;
@@ -266,56 +267,62 @@
 
         .date-center-box .m-y-text {
             font-family: 'Cinzel', serif;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 600;
             color: #3b2a22;
             letter-spacing: 0.5px;
             line-height: 1.2;
             margin-top: 2px;
+            text-align: center;
         }
 
         /* اسم الموقع في الشاشة الأخيرة */
         .location-name-display {
             font-family: 'Pinyon Script', cursive;
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: #3b2a22;
             line-height: 1;
-            margin-top: 0.5rem;
+            margin-top: 0.8rem;
         }
 
         /* زر الخريطة وأيقونة التقويم في الأسفل */
         .action-group {
             position: absolute;
-            bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+            bottom: calc(35px + env(safe-area-inset-bottom, 0px));
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 5;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 8px;
+            width: 100%;
         }
 
         .location-btn, .calendar-btn {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
             color: #332211;
             text-decoration: none;
             font-family: 'Cinzel', serif;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             font-weight: 700;
             letter-spacing: 1.5px;
-            padding: 5px 12px;
+            padding: 6px 18px;
             border-radius: 20px;
-            background: rgba(247, 244, 239, 0.85);
+            background: rgba(247, 244, 239, 0.9);
             border: 1px solid rgba(51, 34, 17, 0.3);
             backdrop-filter: blur(2px);
             transition: all 0.3s ease;
             cursor: pointer;
+            width: 210px;
         }
 
         .location-btn svg, .calendar-btn svg {
-            width: 13px;
-            height: 13px;
+            width: 12px;
+            height: 12px;
             fill: #332211;
         }
     </style>
@@ -345,7 +352,7 @@
 
                 <div>
                     <label class="block text-sm mb-1 font-semibold text-gray-700">اسم الموقع أو القاعة:</label>
-                    <input type="text" id="location_name_input" placeholder="مثال: Makkah" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <input type="text" id="location_name_input" placeholder="مثال: Jeddah" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
 
                 <div>
@@ -377,26 +384,25 @@
         </div>
     </div>
 
-    <!-- 3. الشاشة الأخيرة بالصورة الثابتة والعناصر المدمجة بدقة -->
+    <!-- 3. الشاشة الأخيرة بالصورة الثابتة والعناصر المدمجة بدقة مطابقة للصورة -->
     <div id="final-page" class="screen-page">
         <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/FFF1FC39-7F20-41E0-B2BC-4A55FB5D634E.png" alt="Final Image">
 
-        <!-- الحاوية التي تعرض البيانات المعبأة تماماً مثل الصورة المعبأة -->
         <div class="final-content-container">
-            <div class="final-bride-name" id="disp-bride">Niggin Midi</div>
+            <div class="final-bride-name" id="disp-bride">Mona</div>
             <div class="final-middle-and">and</div>
-            <div class="final-groom-name" id="disp-groom">Niger Hasooni</div>
+            <div class="final-groom-name" id="disp-groom">Bas</div>
 
             <div class="date-time-section">
-                <div class="dt-box" id="disp-day">FRIDAY</div>
+                <div class="dt-box" id="disp-time">AM 02:29</div>
                 <div class="date-center-box">
-                    <span class="day-num" id="disp-daynum">25</span>
-                    <span class="m-y-text" id="disp-monthyear">SEP<br>2026</span>
+                    <span class="day-num" id="disp-daynum">18</span>
+                    <span class="m-y-text" id="disp-monthyear">SEP<br>2027</span>
                 </div>
-                <div class="dt-box" id="disp-time">05:00 AM</div>
+                <div class="dt-box" id="disp-day">SATURDAY</div>
             </div>
 
-            <div class="location-name-display" id="disp-locname">Makkah</div>
+            <div class="location-name-display" id="disp-locname">Jeddah</div>
         </div>
 
         <div class="action-group">
@@ -404,14 +410,14 @@
                 <svg viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
-                LOCATION
+                LOCATION 📍
             </a>
 
             <button class="calendar-btn" onclick="addToCalendar()">
                 <svg viewBox="0 0 24 24">
                     <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
                 </svg>
-                ADD TO CALENDAR
+                ADD TO CALENDAR 📅
             </button>
         </div>
     </div>
@@ -436,7 +442,7 @@
             document.getElementById('n1').innerText = brideVal;
             document.getElementById('n3').innerText = groomVal;
 
-            // تحديث الأسماء والعناصر للشاشة الأخيرة فوراً لتظهر معها في نفس اللحظة
+            // تحديث البيانات للشاشة الأخيرة لتتطابق تماماً مع الصورة
             document.getElementById('disp-bride').innerText = brideVal;
             document.getElementById('disp-groom').innerText = groomVal;
             document.getElementById('disp-locname').innerText = locNameVal;
@@ -445,7 +451,6 @@
                 const dObj = new Date(dateVal);
                 eventDateGlobal = dObj.getTime();
 
-                // استخراج اليوم، رقم اليوم، الشهور، والسنة، والوقت وتنسيقها مثل الصورة المعبأة
                 const daysArr = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
                 const monthsArr = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
@@ -456,11 +461,11 @@
 
                 let hours = dObj.getHours();
                 const minutes = String(dObj.getMinutes()).padStart(2, '0');
-                const ampm = hours >= 12 ? 'AM' : 'AM'; // يمكن تعديله حسب الرغبة
+                const ampm = hours >= 12 ? 'PM' : 'AM';
                 hours = hours % 12;
                 hours = hours ? hours : 12;
                 const hoursStr = String(hours).padStart(2, '0');
-                const timeStr = `${hoursStr}:${minutes} ${ampm}`;
+                const timeStr = `${ampm} ${hoursStr}:${minutes}`;
 
                 document.getElementById('disp-day').innerText = dayName;
                 document.getElementById('disp-daynum').innerText = dayNum;
@@ -561,7 +566,7 @@
             }, 6500);
 
             setTimeout(() => {
-                finalPage.classList.add('active'); // ظهور الشاشة الأخيرة مع بياناتها في نفس اللحظة تماماً
+                finalPage.classList.add('active'); // ظهور الشاشة الأخيرة مع كافة بياناتها فوراً وبنفس اللحظة
                 setTimeout(() => {
                     namesPage.classList.remove('active');
                 }, 600);
