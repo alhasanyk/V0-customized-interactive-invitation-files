@@ -201,12 +201,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding-top: 33vh; /* إزاحة لأسفل قليلاً لتطابق الصورة */
+            padding-top: 33vh;
             text-align: center;
-            transform: translateX(-6px); /* تحريك تكة لليسار */
+            transform: translateX(-6px);
         }
 
-        /* الأسماء مصغرة ومزاحة لليسار قليلاً */
         .final-bride-name {
             font-family: 'Pinyon Script', cursive;
             font-size: 2rem;
@@ -229,7 +228,6 @@
             margin-bottom: 2.5rem;
         }
 
-        /* قسم التاريخ والوقت مصغر ومزاح لليسار */
         .date-time-section {
             display: flex;
             align-items: center;
@@ -278,7 +276,6 @@
             text-align: center;
         }
 
-        /* اسم الموقع مصغر ومزاح لليسار */
         .location-name-display {
             font-family: 'Pinyon Script', cursive;
             font-size: 1.7rem;
@@ -287,7 +284,6 @@
             margin-top: 0.6rem;
         }
 
-        /* الأزرار في الأسفل مطابقة للصورة بدقة */
         .action-group {
             position: absolute;
             bottom: calc(30px + env(safe-area-inset-bottom, 0px));
@@ -331,7 +327,7 @@
 </head>
 <body>
 
-    <!-- صفحة إدخال البيانات باللغة الإنجليزية بالكامل -->
+    <!-- صفحة إدخال البيانات باللغة الإنجليزية -->
     <div id="generator-screen">
         <div class="w-full max-w-md p-6 bg-white rounded-2xl shadow-xl border border-gray-100">
             <h1 class="text-xl font-bold text-center mb-6 text-gray-900">Customize Invitation Details</h1>
@@ -386,7 +382,7 @@
         </div>
     </div>
 
-    <!-- 3. الشاشة الأخيرة مطابقة تماماً للصورة الأخيرة بدون كلمة and الزائدة -->
+    <!-- 3. الشاشة الأخيرة -->
     <div id="final-page" class="screen-page">
         <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/FFF1FC39-7F20-41E0-B2BC-4A55FB5D634E.png" alt="Final Image">
 
@@ -435,16 +431,14 @@
             e.preventDefault();
             
             const groomVal = document.getElementById('groom_name_input').value;
-            const brideVal = document.getElementById('bride_name_input'].value;
+            const brideVal = document.getElementById('bride_name_input').value; // تم تصحيح الخطأ هنا
             const dateVal = document.getElementById('wedding_date_input').value;
             const locNameVal = document.getElementById('location_name_input').value;
             const locUrlVal = document.getElementById('location_url_input').value;
 
-            // تحديث الأسماء للفيديو المتحرك
             document.getElementById('n1').innerText = brideVal;
             document.getElementById('n3').innerText = groomVal;
 
-            // تحديث البيانات للشاشة الأخيرة لتتطابق تماماً مع الصورة المطلوبة
             document.getElementById('disp-bride').innerText = brideVal;
             document.getElementById('disp-groom').innerText = groomVal;
             document.getElementById('disp-locname').innerText = locNameVal;
@@ -478,7 +472,6 @@
             document.getElementById('final-map-btn').href = locUrlVal;
             locationNameText = locNameVal;
 
-            // انتقال ناعم للاختفاء وبدء العرض
             const genScreen = document.getElementById('generator-screen');
             genScreen.classList.add('fade-out');
             setTimeout(() => {
@@ -568,7 +561,7 @@
             }, 6500);
 
             setTimeout(() => {
-                finalPage.classList.add('active'); // ظهور الشاشة الأخيرة فوراً بكافة عناصرها المضبوطة
+                finalPage.classList.add('active');
                 setTimeout(() => {
                     namesPage.classList.remove('active');
                 }, 600);
