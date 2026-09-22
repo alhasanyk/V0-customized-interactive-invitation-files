@@ -201,7 +201,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding-top: 32vh; /* تم ضبط التموضع الرأسي للأسماء */
+            padding-top: 36vh; /* تم إنزال المحتوى بالكامل للأسفل على المحور Y */
             text-align: center;
             transform: translateX(-6px);
         }
@@ -213,29 +213,22 @@
             line-height: 1;
         }
 
-        /* كلمة and الوسطى بين اسم العروس والعريس تماماً كما في الصورة */
-        .final-middle-and {
-            font-family: 'Pinyon Script', cursive;
-            font-size: 1.2rem;
-            color: #7a6558;
-            margin: 2px 0;
-        }
-
         .final-groom-name {
             font-family: 'Pinyon Script', cursive;
             font-size: 2rem;
             color: #3b2a22;
             line-height: 1;
+            margin-top: 15px; /* تم إبعاد اسم العريس للأسفل قليلاً عن العروس */
             margin-bottom: 2rem;
         }
 
-        /* قسم التاريخ والوقت واليوم (تم إنزاله على المحور Y قليلاً) */
+        /* قسم التاريخ والوقت واليوم */
         .date-time-section {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             margin-bottom: 1.8rem;
             width: 85%;
             max-width: 380px;
@@ -279,7 +272,7 @@
             text-align: center;
         }
 
-        /* اسم الموقع (تم إنزاله على المحور Y قليلاً ليطابق الصورة) */
+        /* اسم الموقع */
         .location-name-display {
             font-family: 'Pinyon Script', cursive;
             font-size: 1.7rem;
@@ -288,7 +281,7 @@
             margin-top: 0.8rem;
         }
 
-        /* مجموعة الأزرار (تم رفعها للأعلى وإزالة أي إيموجيز أو ألوان) */
+        /* مجموعة الأزرار (تم رفعها للأزالة الكاملة للأيقونات الملونة والتعديل) */
         .action-group {
             position: absolute;
             bottom: calc(75px + env(safe-area-inset-bottom, 0px));
@@ -380,13 +373,12 @@
         </div>
     </div>
 
-    <!-- 3. الشاشة الأخيرة مطابقة تماماً للصورة -->
+    <!-- 3. الشاشة الأخيرة -->
     <div id="final-page" class="screen-page">
         <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/FFF1FC39-7F20-41E0-B2BC-4A55FB5D634E.png" alt="Final Image">
 
         <div class="final-content-container">
             <div class="final-bride-name" id="disp-bride">Midi</div>
-            <div class="final-middle-and">and</div>
             <div class="final-groom-name" id="disp-groom">Hasan</div>
 
             <div class="date-time-section">
