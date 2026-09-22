@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>دعوة زواج - صانع الدعوات</title>
+    <title>Wedding Invitation - Generator</title>
     
     <!-- الخطوط الأنيقة -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* صفحة توليد الدعوة البيضاء مع انتقال ناعم للاختفاء */
+        /* صفحة توليد الدعوة باللغة الإنجليزية */
         #generator-screen {
             position: fixed;
             top: 0;
@@ -47,7 +47,8 @@
             align-items: center;
             padding: 20px;
             font-family: 'Cairo', sans-serif;
-            direction: rtl;
+            direction: ltr;
+            text-align: left;
             opacity: 1;
             transition: opacity 1s ease-in-out;
         }
@@ -184,7 +185,7 @@
             transition: all 0.8s ease;
         }
 
-        /* تنسيق عناصر الشاشة الأخيرة مطابقة للصورة بدقة */
+        /* الشاشة الأخيرة - مطابقة تماماً للصورة الأخيرة */
         #final-page {
             position: fixed;
         }
@@ -200,51 +201,52 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding-top: 30.5vh; 
+            padding-top: 33vh; /* إزاحة لأسفل قليلاً لتطابق الصورة */
             text-align: center;
+            transform: translateX(-6px); /* تحريك تكة لليسار */
         }
 
-        /* أسماء العروسين في الشاشة الأخيرة */
+        /* الأسماء مصغرة ومزاحة لليسار قليلاً */
         .final-bride-name {
             font-family: 'Pinyon Script', cursive;
-            font-size: 2.3rem;
+            font-size: 2rem;
             color: #3b2a22;
             line-height: 1;
         }
 
         .final-middle-and {
             font-family: 'Pinyon Script', cursive;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: #7a6558;
-            margin: 2px 0;
+            margin: 1px 0;
         }
 
         .final-groom-name {
             font-family: 'Pinyon Script', cursive;
-            font-size: 2.3rem;
+            font-size: 2rem;
             color: #3b2a22;
             line-height: 1;
-            margin-bottom: 2.8rem;
+            margin-bottom: 2.5rem;
         }
 
-        /* قسم التاريخ والوقت واليوم متطابق تماماً مع صورتك */
+        /* قسم التاريخ والوقت مصغر ومزاح لليسار */
         .date-time-section {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1.2rem;
-            margin-bottom: 2.4rem;
-            width: 90%;
-            max-width: 420px;
+            gap: 1rem;
+            margin-bottom: 2.2rem;
+            width: 85%;
+            max-width: 380px;
         }
 
         .dt-box {
             font-family: 'Cinzel', serif;
-            font-size: 0.72rem;
+            font-size: 0.65rem;
             font-weight: 600;
             color: #3b2a22;
             letter-spacing: 0.5px;
-            width: 110px;
+            width: 100px;
             text-align: center;
             white-space: nowrap;
         }
@@ -254,12 +256,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 70px;
+            width: 60px;
         }
 
         .date-center-box .day-num {
             font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #3b2a22;
             line-height: 1;
@@ -267,7 +269,7 @@
 
         .date-center-box .m-y-text {
             font-family: 'Cinzel', serif;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-weight: 600;
             color: #3b2a22;
             letter-spacing: 0.5px;
@@ -276,19 +278,19 @@
             text-align: center;
         }
 
-        /* اسم الموقع في الشاشة الأخيرة */
+        /* اسم الموقع مصغر ومزاح لليسار */
         .location-name-display {
             font-family: 'Pinyon Script', cursive;
-            font-size: 2rem;
+            font-size: 1.7rem;
             color: #3b2a22;
             line-height: 1;
-            margin-top: 0.8rem;
+            margin-top: 0.6rem;
         }
 
-        /* زر الخريطة وأيقونة التقويم في الأسفل */
+        /* الأزرار في الأسفل مطابقة للصورة بدقة */
         .action-group {
             position: absolute;
-            bottom: calc(35px + env(safe-area-inset-bottom, 0px));
+            bottom: calc(30px + env(safe-area-inset-bottom, 0px));
             left: 50%;
             transform: translateX(-50%);
             z-index: 5;
@@ -303,65 +305,65 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             color: #332211;
             text-decoration: none;
             font-family: 'Cinzel', serif;
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             font-weight: 700;
             letter-spacing: 1.5px;
-            padding: 6px 18px;
+            padding: 6px 16px;
             border-radius: 20px;
-            background: rgba(247, 244, 239, 0.9);
+            background: rgba(247, 244, 239, 0.92);
             border: 1px solid rgba(51, 34, 17, 0.3);
             backdrop-filter: blur(2px);
             transition: all 0.3s ease;
             cursor: pointer;
-            width: 210px;
+            width: 250px;
         }
 
         .location-btn svg, .calendar-btn svg {
-            width: 12px;
-            height: 12px;
+            width: 11px;
+            height: 11px;
             fill: #332211;
         }
     </style>
 </head>
 <body>
 
-    <!-- الصفحة الأولى لإدخال البيانات -->
+    <!-- صفحة إدخال البيانات باللغة الإنجليزية بالكامل -->
     <div id="generator-screen">
         <div class="w-full max-w-md p-6 bg-white rounded-2xl shadow-xl border border-gray-100">
-            <h1 class="text-xl font-bold text-center mb-6 text-gray-900">تخصيص بيانات الدعوة</h1>
+            <h1 class="text-xl font-bold text-center mb-6 text-gray-900">Customize Invitation Details</h1>
             
             <form id="invite-form" class="space-y-4">
                 <div>
-                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم العريس:</label>
-                    <input type="text" id="groom_name_input" placeholder="أدخل اسم العريس هنا" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">Groom's Name:</label>
+                    <input type="text" id="groom_name_input" placeholder="e.g. Hasan" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
                 
                 <div>
-                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم العروس:</label>
-                    <input type="text" id="bride_name_input" placeholder="أدخل اسم العروس هنا" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">Bride's Name:</label>
+                    <input type="text" id="bride_name_input" placeholder="e.g. Midi" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
                 
                 <div>
-                    <label class="block text-sm mb-1 font-semibold text-gray-700">تاريخ ووقت الزواج:</label>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">Wedding Date & Time:</label>
                     <input type="datetime-local" id="wedding_date_input" required class="w-full bg-transparent border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:border-black">
                 </div>
 
                 <div>
-                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم الموقع أو القاعة:</label>
-                    <input type="text" id="location_name_input" placeholder="مثال: Jeddah" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">Location / Venue Name:</label>
+                    <input type="text" id="location_name_input" placeholder="e.g. Jeddah" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
 
                 <div>
-                    <label class="block text-sm mb-1 font-semibold text-gray-700">رابط الموقع (Google Maps):</label>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">Google Maps URL:</label>
                     <input type="url" id="location_url_input" placeholder="https://maps.app.goo.gl/..." required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
 
                 <button type="submit" class="w-full bg-black text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition duration-200 mt-4">
-                    اصنع الدعوة
+                    Create Invitation
                 </button>
             </form>
         </div>
@@ -384,22 +386,22 @@
         </div>
     </div>
 
-    <!-- 3. الشاشة الأخيرة بالصورة الثابتة والعناصر المدمجة بدقة مطابقة للصورة -->
+    <!-- 3. الشاشة الأخيرة مطابقة تماماً للصورة الأخيرة بدون كلمة and الزائدة -->
     <div id="final-page" class="screen-page">
         <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/FFF1FC39-7F20-41E0-B2BC-4A55FB5D634E.png" alt="Final Image">
 
         <div class="final-content-container">
-            <div class="final-bride-name" id="disp-bride">Mona</div>
+            <div class="final-bride-name" id="disp-bride">Midi</div>
             <div class="final-middle-and">and</div>
-            <div class="final-groom-name" id="disp-groom">Bas</div>
+            <div class="final-groom-name" id="disp-groom">Hasan</div>
 
             <div class="date-time-section">
-                <div class="dt-box" id="disp-time">AM 02:29</div>
+                <div class="dt-box" id="disp-time">PM 02:32</div>
                 <div class="date-center-box">
-                    <span class="day-num" id="disp-daynum">18</span>
-                    <span class="m-y-text" id="disp-monthyear">SEP<br>2027</span>
+                    <span class="day-num" id="disp-daynum">22</span>
+                    <span class="m-y-text" id="disp-monthyear">SEP<br>2026</span>
                 </div>
-                <div class="dt-box" id="disp-day">SATURDAY</div>
+                <div class="dt-box" id="disp-day">TUESDAY</div>
             </div>
 
             <div class="location-name-display" id="disp-locname">Jeddah</div>
@@ -410,14 +412,14 @@
                 <svg viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
-                LOCATION 📍
+                📍 LOCATION 📍
             </a>
 
             <button class="calendar-btn" onclick="addToCalendar()">
                 <svg viewBox="0 0 24 24">
                     <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
                 </svg>
-                ADD TO CALENDAR 📅
+                📅 ADD TO CALENDAR 📅
             </button>
         </div>
     </div>
@@ -433,7 +435,7 @@
             e.preventDefault();
             
             const groomVal = document.getElementById('groom_name_input').value;
-            const brideVal = document.getElementById('bride_name_input').value;
+            const brideVal = document.getElementById('bride_name_input'].value;
             const dateVal = document.getElementById('wedding_date_input').value;
             const locNameVal = document.getElementById('location_name_input').value;
             const locUrlVal = document.getElementById('location_url_input').value;
@@ -442,7 +444,7 @@
             document.getElementById('n1').innerText = brideVal;
             document.getElementById('n3').innerText = groomVal;
 
-            // تحديث البيانات للشاشة الأخيرة لتتطابق تماماً مع الصورة
+            // تحديث البيانات للشاشة الأخيرة لتتطابق تماماً مع الصورة المطلوبة
             document.getElementById('disp-bride').innerText = brideVal;
             document.getElementById('disp-groom').innerText = groomVal;
             document.getElementById('disp-locname').innerText = locNameVal;
@@ -476,7 +478,7 @@
             document.getElementById('final-map-btn').href = locUrlVal;
             locationNameText = locNameVal;
 
-            // انتقال ناعم من صفحة الإدخال للصورة الأولى
+            // انتقال ناعم للاختفاء وبدء العرض
             const genScreen = document.getElementById('generator-screen');
             genScreen.classList.add('fade-out');
             setTimeout(() => {
@@ -539,7 +541,7 @@
             video.style.opacity = '1';
 
             video.play().catch(error => {
-                console.log("خطأ في تشغيل الفيديو:", error);
+                console.log("Error playing video:", error);
                 playBtn.style.display = 'flex';
                 playBtn.style.opacity = '1';
             });
@@ -547,7 +549,7 @@
 
         video.addEventListener('ended', () => {
             audio.play().catch(error => {
-                console.log("خطأ في تشغيل الصوت:", error);
+                console.log("Error playing audio:", error);
             });
 
             namesPage.classList.add('active');
@@ -566,7 +568,7 @@
             }, 6500);
 
             setTimeout(() => {
-                finalPage.classList.add('active'); // ظهور الشاشة الأخيرة مع كافة بياناتها فوراً وبنفس اللحظة
+                finalPage.classList.add('active'); // ظهور الشاشة الأخيرة فوراً بكافة عناصرها المضبوطة
                 setTimeout(() => {
                     namesPage.classList.remove('active');
                 }, 600);
