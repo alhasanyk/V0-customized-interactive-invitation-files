@@ -3,101 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مُولّد دعوة الزواج الرقمية</title>
+    <title>دعوة زواج</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #0f172a; color: #fff; }
+        body { font-family: 'Cairo', sans-serif; }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="bg-white text-slate-800 m-0 p-0">
 
-    <!-- شاشة إدخال البيانات (المولد) -->
-    <div id="generator-screen" class="w-full max-w-md bg-slate-800 p-6 rounded-2xl shadow-2xl border border-slate-700">
-        <h1 class="text-2xl font-bold text-center mb-6 text-amber-400">💍 صانع دعوة الزواج الرقمية</h1>
-        
-        <form id="invite-form" class="space-y-4">
-            <div>
-                <label class="block text-sm mb-1 text-slate-300">اسم العريس:</label>
-                <input type="text" id="groom_name" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="مثال: أحمد">
-            </div>
+    <!-- الصفحة الأولى: بيضاء بالكامل وبها نموذج الإدخال فقط -->
+    <div id="generator-screen" class="min-h-screen flex items-center justify-center p-4 bg-white">
+        <div class="w-full max-w-md p-6 bg-white rounded-xl shadow-md border border-gray-100">
+            <h1 class="text-xl font-bold text-center mb-6 text-gray-900">تخصيص دعوة الزواج</h1>
             
-            <div>
-                <label class="block text-sm mb-1 text-slate-300">اسم العروس:</label>
-                <input type="text" id="bride_name" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="مثال: فاطمة">
-            </div>
-            
-            <div>
-                <label class="block text-sm mb-1 text-slate-300">تاريخ وقاعة الزواج:</label>
-                <input type="text" id="wedding_date" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="مثال: الخميس 15 شوال 1447 هـ">
-            </div>
+            <form id="invite-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم العريس:</label>
+                    <input type="text" id="groom_name" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                </div>
+                
+                <div>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم العروس:</label>
+                    <input type="text" id="bride_name" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                </div>
+                
+                <div>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">التاريخ:</label>
+                    <input type="text" id="wedding_date" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                </div>
 
-            <div>
-                <label class="block text-sm mb-1 text-slate-300">اسم القاعة / الموقع:</label>
-                <input type="text" id="location_name" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="مثال: قاعة الملك ليلة للاحتفالات">
-            </div>
+                <div>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم الموقع (القاعة):</label>
+                    <input type="text" id="location_name" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                </div>
 
-            <div>
-                <label class="block text-sm mb-1 text-slate-300">رابط موقع القاعة (Google Maps):</label>
-                <input type="url" id="location_url" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="https://maps.app.goo.gl/...">
-            </div>
+                <div>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">رابط الموقع:</label>
+                    <input type="url" id="location_url" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                </div>
 
-            <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 rounded-lg transition duration-200 mt-4 shadow-lg">
-                ✨ اصنع الدعوة الآن
-            </button>
-        </form>
+                <button type="submit" class="w-full bg-black text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition duration-200 mt-2">
+                    اصنع الدعوة
+                </button>
+            </form>
+        </div>
     </div>
 
-    <!-- شاشة عرض الدعوة التفاعلية (تظهر بعد التوليد) -->
-    <div id="invitation-screen" class="hidden w-full max-w-md bg-slate-900 min-h-screen relative shadow-2xl overflow-hidden flex flex-col items-center justify-between p-6 text-center">
-        <!-- محتوى الدعوة سيتم حقنه هنا بروابط الوسائط الخاصة بك -->
-        <div class="w-full space-y-6 my-auto">
-            <h2 id="view-title" class="text-3xl font-black text-amber-400">حفل زفاف مبارك</h2>
-            <p class="text-lg text-slate-200">يسعدنا حضوركم ليلة زفاف</p>
-            <div class="text-2xl font-bold text-white bg-slate-800 p-4 rounded-xl border border-amber-500/30">
+    <!-- الصفحة الثانية: نفس تصميمك الأصلي تماماً (تظهر بعد الضغط على اصنع الدعوة) -->
+    <div id="invitation-screen" class="hidden min-h-screen flex flex-col items-center justify-between p-6 text-center">
+        <div class="w-full max-w-md space-y-6 my-auto">
+            <h2 class="text-2xl font-bold">حفل زفاف مبارك</h2>
+            
+            <div class="text-xl font-semibold">
                 <span id="view-groom"></span> & <span id="view-bride"></span>
             </div>
             
-            <!-- فيديو الدعوة -->
-            <div class="rounded-xl overflow-hidden shadow-lg border border-slate-700">
-                <video id="view-video" controls class="w-full" poster="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/IMG_0048.jpeg">
+            <!-- فيديو الدعوة بروابط جيت هاب المباشرة -->
+            <div class="rounded-xl overflow-hidden shadow">
+                <video controls class="w-full" poster="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/IMG_0048.jpeg">
                     <source src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/2026-09-21%2017%3A15%3A00.mov" type="video/quicktime">
                     متصفحك لا يدعم عرض الفيديو
                 </video>
             </div>
 
-            <p id="view-date" class="text-amber-200 font-semibold"></p>
-            <p id="view-location" class="text-slate-300"></p>
+            <p id="view-date" class="font-medium"></p>
+            <p id="view-location" class="text-gray-600"></p>
 
-            <a id="view-map-btn" href="#" target="_blank" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-bold transition">
-                📍 فتح موقع القاعة على الخريطة
+            <a id="view-map-btn" href="#" target="_blank" class="inline-block bg-slate-900 text-white px-6 py-2.5 rounded-lg text-sm font-medium">
+                فتح الموقع على الخريطة
             </a>
         </div>
-
-        <button onclick="location.reload()" class="text-xs text-slate-500 underline mt-4">إنشاء دعوة جديدة</button>
     </div>
 
     <script>
-        const repoBase = "https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/";
-
         document.getElementById('invite-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // جلب المدخلات
+            // سحب البيانات المدخلة
             const groom = document.getElementById('groom_name').value;
             const bride = document.getElementById('bride_name').value;
             const date = document.getElementById('wedding_date').value;
             const locName = document.getElementById('location_name').value;
             const locUrl = document.getElementById('location_url').value;
 
-            // تعبئة البيانات في شاشة العرض
+            // حقن البيانات في صفحة الدعوة الأصلية
             document.getElementById('view-groom').innerText = groom;
             document.getElementById('view-bride').innerText = bride;
-            document.getElementById('view-date').innerText = "📅 التاريخ: " + date;
-            document.getElementById('view-location').innerText = "📍 القاعة: " + locName;
+            document.getElementById('view-date').innerText = date;
+            document.getElementById('view-location').innerText = locName;
             document.getElementById('view-map-btn').href = locUrl;
 
-            // إخفاء نموذج التوليد وإظهار الدعوة
+            // إخفاء الصفحة البيضاء وإظهار صفحة الدعوة
             document.getElementById('generator-screen').classList.add('hidden');
             document.getElementById('invitation-screen').classList.remove('hidden');
         });
