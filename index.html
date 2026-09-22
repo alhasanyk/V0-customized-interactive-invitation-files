@@ -101,7 +101,7 @@
             transition: opacity 0.5s ease;
         }
 
-        /* زر الختم (تم رفعه تكة بسيطة للأعلى عبر تعديل top إلى 51.5%) */
+        /* زر الختم */
         #playBtn {
             position: absolute;
             top: 51.5%; 
@@ -201,7 +201,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding-top: 33vh;
+            padding-top: 32vh; /* تم ضبط التموضع الرأسي للأسماء */
             text-align: center;
             transform: translateX(-6px);
         }
@@ -213,21 +213,30 @@
             line-height: 1;
         }
 
+        /* كلمة and الوسطى بين اسم العروس والعريس تماماً كما في الصورة */
+        .final-middle-and {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.2rem;
+            color: #7a6558;
+            margin: 2px 0;
+        }
+
         .final-groom-name {
             font-family: 'Pinyon Script', cursive;
             font-size: 2rem;
             color: #3b2a22;
             line-height: 1;
-            margin-top: 5px;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
+        /* قسم التاريخ والوقت واليوم (تم إنزاله على المحور Y قليلاً) */
         .date-time-section {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            margin-bottom: 2.2rem;
+            margin-top: 1rem;
+            margin-bottom: 1.8rem;
             width: 85%;
             max-width: 380px;
         }
@@ -270,25 +279,26 @@
             text-align: center;
         }
 
+        /* اسم الموقع (تم إنزاله على المحور Y قليلاً ليطابق الصورة) */
         .location-name-display {
             font-family: 'Pinyon Script', cursive;
             font-size: 1.7rem;
             color: #3b2a22;
             line-height: 1;
-            margin-top: 0.6rem;
+            margin-top: 0.8rem;
         }
 
-        /* مجموعة الأزرار (تم رفعها للأعلى بزيادة مسافة الـ bottom ومسح الأيقونات الملونة) */
+        /* مجموعة الأزرار (تم رفعها للأعلى وإزالة أي إيموجيز أو ألوان) */
         .action-group {
             position: absolute;
-            bottom: calc(55px + env(safe-area-inset-bottom, 0px));
+            bottom: calc(75px + env(safe-area-inset-bottom, 0px));
             left: 50%;
             transform: translateX(-50%);
             z-index: 5;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             width: 100%;
         }
 
@@ -302,9 +312,9 @@
             font-size: 0.65rem;
             font-weight: 700;
             letter-spacing: 1.5px;
-            padding: 8px 16px;
+            padding: 9px 16px;
             border-radius: 20px;
-            background: rgba(247, 244, 239, 0.92);
+            background: rgba(247, 244, 239, 0.95);
             border: 1px solid rgba(51, 34, 17, 0.3);
             backdrop-filter: blur(2px);
             transition: all 0.3s ease;
@@ -370,12 +380,13 @@
         </div>
     </div>
 
-    <!-- 3. الشاشة الأخيرة (بدون كلمة and بين الأسماء) -->
+    <!-- 3. الشاشة الأخيرة مطابقة تماماً للصورة -->
     <div id="final-page" class="screen-page">
         <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/FFF1FC39-7F20-41E0-B2BC-4A55FB5D634E.png" alt="Final Image">
 
         <div class="final-content-container">
             <div class="final-bride-name" id="disp-bride">Midi</div>
+            <div class="final-middle-and">and</div>
             <div class="final-groom-name" id="disp-groom">Hasan</div>
 
             <div class="date-time-section">
@@ -392,11 +403,11 @@
 
         <div class="action-group">
             <a id="final-map-btn" href="#" target="_blank" class="location-btn">
-                📍 LOCATION 📍
+                LOCATION
             </a>
 
             <button class="calendar-btn" onclick="addToCalendar()">
-                📅 ADD TO CALENDAR 📅
+                ADD TO CALENDAR
             </button>
         </div>
     </div>
