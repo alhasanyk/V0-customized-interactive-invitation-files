@@ -431,7 +431,7 @@
             e.preventDefault();
             
             const groomVal = document.getElementById('groom_name_input').value;
-            const brideVal = document.getElementById('bride_name_input').value; // تم تصحيح الخطأ هنا
+            const brideVal = document.getElementById('bride_name_input').value;
             const dateVal = document.getElementById('wedding_date_input').value;
             const locNameVal = document.getElementById('location_name_input').value;
             const locUrlVal = document.getElementById('location_url_input').value;
@@ -478,7 +478,7 @@
                 genScreen.style.display = 'none';
                 setTimeout(() => {
                     document.getElementById('playBtn').classList.add('fade-in');
-                }, 1000);
+                }, 500);
             }, 1000);
         });
 
@@ -528,13 +528,15 @@
 
         playBtn.addEventListener('click', () => {
             playBtn.style.opacity = '0';
-            setTimeout(() => playBtn.style.display = 'none', 400);
+            setTimeout(() => playBtn.style.display = 'none', 300);
 
             video.currentTime = 5;
             video.style.opacity = '1';
 
-            video.play().catch(error => {
-                console.log("Error playing video:", error);
+            video.play().then(() => {
+                // بدأ التشغيل بنجاح
+            }).catch(error => {
+                console.log("Autoplay prevented, retrying...", error);
                 playBtn.style.display = 'flex';
                 playBtn.style.opacity = '1';
             });
@@ -542,7 +544,7 @@
 
         video.addEventListener('ended', () => {
             audio.play().catch(error => {
-                console.log("Error playing audio:", error);
+                console.log("Audio play error:", error);
             });
 
             namesPage.classList.add('active');
