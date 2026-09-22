@@ -197,39 +197,44 @@
             width: 100%;
             height: 100%;
             z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding-top: 36vh;
             text-align: center;
             transform: translateX(-6px);
         }
 
         .final-bride-name {
+            position: absolute;
+            top: 34%;
+            left: 50%;
+            transform: translateX(-50%);
             font-family: 'Pinyon Script', cursive;
             font-size: 2rem;
             color: #3b2a22;
             line-height: 1;
+            white-space: nowrap;
         }
 
         .final-groom-name {
+            position: absolute;
+            top: 45.5%;
+            left: 50%;
+            transform: translateX(-50%);
             font-family: 'Pinyon Script', cursive;
             font-size: 2rem;
             color: #3b2a22;
             line-height: 1;
-            margin-top: 15px;
-            margin-bottom: 2rem;
+            white-space: nowrap;
         }
 
         /* قسم التاريخ والوقت واليوم */
         .date-time-section {
+            position: absolute;
+            top: 59.5%;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            margin-top: 0.5rem;
-            margin-bottom: 1.8rem;
             width: 85%;
             max-width: 380px;
         }
@@ -274,11 +279,15 @@
 
         /* اسم الموقع */
         .location-name-display {
+            position: absolute;
+            top: 68.5%;
+            left: 50%;
+            transform: translateX(-50%);
             font-family: 'Pinyon Script', cursive;
             font-size: 1.7rem;
             color: #3b2a22;
             line-height: 1;
-            margin-top: 0.8rem;
+            white-space: nowrap;
         }
 
         /* مجموعة الأزرار */
@@ -299,6 +308,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 8px;
             color: #332211;
             text-decoration: none;
             font-family: 'Cinzel', serif;
@@ -307,12 +317,28 @@
             letter-spacing: 1.5px;
             padding: 9px 16px;
             border-radius: 20px;
-            background: rgba(247, 244, 239, 0.95);
-            border: 1px solid rgba(51, 34, 17, 0.3);
-            backdrop-filter: blur(2px);
+            background: transparent;
+            border: 1px solid rgba(51, 34, 17, 0.45);
             transition: all 0.3s ease;
             cursor: pointer;
             width: 250px;
+        }
+
+        .location-btn:active, .calendar-btn:active {
+            background: rgba(51, 34, 17, 0.06);
+        }
+
+        .btn-icon {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            stroke: #332211;
+            fill: none;
+        }
+
+        .btn-icon.filled {
+            fill: #332211;
+            stroke: none;
         }
     </style>
 </head>
@@ -360,199 +386,4 @@
     <div id="video-page" class="screen-page active">
         <img id="bg-image" src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/IMG_0048.jpeg" alt="Background">
         <button id="playBtn">press</button>
-        <video id="myVideo" src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/2026-09-21%2017%3A15%3A00.mov" playsinline webkit-playsinline preload="auto"></video>
-    </div>
-
-    <!-- 2. شاشة الأسماء المتحركة -->
-    <div id="names-page" class="screen-page">
-        <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/IMG_0042.jpeg" alt="Background">
-        <div id="couple-names">
-            <div class="name-top" id="n1"></div>
-            <div class="name-and" id="n2">and</div>
-            <div class="name-bottom" id="n3"></div>
-        </div>
-    </div>
-
-    <!-- 3. الشاشة الأخيرة بدون كلمة and -->
-    <div id="final-page" class="screen-page">
-        <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/FFF1FC39-7F20-41E0-B2BC-4A55FB5D634E.png" alt="Final Image">
-
-        <div class="final-content-container">
-            <div class="final-bride-name" id="disp-bride">Midi</div>
-            <div class="final-groom-name" id="disp-groom">Hasan</div>
-
-            <div class="date-time-section">
-                <div class="dt-box" id="disp-time">PM 02:32</div>
-                <div class="date-center-box">
-                    <span class="day-num" id="disp-daynum">22</span>
-                    <span class="m-y-text" id="disp-monthyear">SEP<br>2026</span>
-                </div>
-                <div class="dt-box" id="disp-day">TUESDAY</div>
-            </div>
-
-            <div class="location-name-display" id="disp-locname">Jeddah</div>
-        </div>
-
-        <div class="action-group">
-            <a id="final-map-btn" href="#" target="_blank" class="location-btn">
-                LOCATION
-            </a>
-
-            <button class="calendar-btn" onclick="addToCalendar()">
-                ADD TO CALENDAR
-            </button>
-        </div>
-    </div>
-
-    <!-- الصوت -->
-    <audio id="myAudio" src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/Zafah.mp3" preload="auto"></audio>
-
-    <script>
-        let eventDateGlobal = new Date().getTime();
-        let locationNameText = "";
-
-        document.getElementById('invite-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const groomVal = document.getElementById('groom_name_input').value;
-            const brideVal = document.getElementById('bride_name_input').value;
-            const dateVal = document.getElementById('wedding_date_input').value;
-            const locNameVal = document.getElementById('location_name_input').value;
-            const locUrlVal = document.getElementById('location_url_input').value;
-
-            document.getElementById('n1').innerText = brideVal;
-            document.getElementById('n3').innerText = groomVal;
-
-            document.getElementById('disp-bride').innerText = brideVal;
-            document.getElementById('disp-groom').innerText = groomVal;
-            document.getElementById('disp-locname').innerText = locNameVal;
-
-            if (dateVal) {
-                const dObj = new Date(dateVal);
-                eventDateGlobal = dObj.getTime();
-
-                const daysArr = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
-                const monthsArr = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-
-                const dayName = daysArr[dObj.getDay()];
-                const dayNum = String(dObj.getDate()).padStart(2, '0');
-                const monthName = monthsArr[dObj.getMonth()];
-                const yearNum = dObj.getFullYear();
-
-                let hours = dObj.getHours();
-                const minutes = String(dObj.getMinutes()).padStart(2, '0');
-                const ampm = hours >= 12 ? 'PM' : 'AM';
-                hours = hours % 12;
-                hours = hours ? hours : 12;
-                const hoursStr = String(hours).padStart(2, '0');
-                const timeStr = `${ampm} ${hoursStr}:${minutes}`;
-
-                document.getElementById('disp-day').innerText = dayName;
-                document.getElementById('disp-daynum').innerText = dayNum;
-                document.getElementById('disp-monthyear').innerHTML = `${monthName}<br>${yearNum}`;
-                document.getElementById('disp-time').innerText = timeStr;
-            }
-
-            document.getElementById('final-map-btn').href = locUrlVal;
-            locationNameText = locNameVal;
-
-            const genScreen = document.getElementById('generator-screen');
-            genScreen.classList.add('fade-out');
-            setTimeout(() => {
-                genScreen.style.display = 'none';
-                setTimeout(() => {
-                    document.getElementById('playBtn').classList.add('fade-in');
-                }, 500);
-            }, 1000);
-        });
-
-        function addToCalendar() {
-            const title = "Wedding Celebration";
-            const description = "We are honored to have you join our special day!";
-            
-            const dObj = new Date(eventDateGlobal);
-            const startTime = dObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-            const endDateObj = new Date(eventDateGlobal + 3 * 3600 * 1000);
-            const endTime = endDateObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-
-            const icsLines = [
-                "BEGIN:VCALENDAR",
-                "VERSION:2.0",
-                "PRODID:-//Wedding Invitation//EN",
-                "BEGIN:VEVENT",
-                "UID:" + Date.now() + "@wedding.invitation",
-                "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z",
-                "DTSTART:" + startTime,
-                "DTEND:" + endTime,
-                "SUMMARY:" + title,
-                "DESCRIPTION:" + description,
-                "LOCATION:" + locationNameText,
-                "END:VEVENT",
-                "END:VCALENDAR"
-            ];
-
-            const icsBlob = new Blob([icsLines.join("\r\n")], { type: "text/calendar;charset=utf-8" });
-            const downloadUrl = URL.createObjectURL(icsBlob);
-            
-            const anchor = document.createElement("a");
-            anchor.href = downloadUrl;
-            anchor.setAttribute("download", "wedding-invitation.ics");
-            document.body.appendChild(anchor);
-            anchor.click();
-            document.body.removeChild(anchor);
-            URL.revokeObjectURL(downloadUrl);
-        }
-
-        const video = document.getElementById('myVideo');
-        const audio = document.getElementById('myAudio');
-        const playBtn = document.getElementById('playBtn');
-        const videoPage = document.getElementById('video-page');
-        const namesPage = document.getElementById('names-page');
-        const finalPage = document.getElementById('final-page');
-
-        playBtn.addEventListener('click', () => {
-            playBtn.style.opacity = '0';
-            setTimeout(() => playBtn.style.display = 'none', 300);
-
-            video.currentTime = 5;
-            video.style.opacity = '1';
-
-            video.play().then(() => {
-                // بدأ التشغيل بنجاح
-            }).catch(error => {
-                console.log("Autoplay prevented, retrying...", error);
-                playBtn.style.display = 'flex';
-                playBtn.style.opacity = '1';
-            });
-        });
-
-        video.addEventListener('ended', () => {
-            audio.play().catch(error => {
-                console.log("Audio play error:", error);
-            });
-
-            namesPage.classList.add('active');
-            setTimeout(() => {
-                videoPage.classList.remove('active');
-            }, 600);
-
-            setTimeout(() => document.getElementById('n1').classList.add('writing'), 400);
-            setTimeout(() => document.getElementById('n2').classList.add('writing'), 2200);
-            setTimeout(() => document.getElementById('n3').classList.add('writing'), 3200);
-
-            setTimeout(() => {
-                document.getElementById('n1').classList.add('hide');
-                document.getElementById('n2').classList.add('hide');
-                document.getElementById('n3').classList.add('hide');
-            }, 6500);
-
-            setTimeout(() => {
-                finalPage.classList.add('active');
-                setTimeout(() => {
-                    namesPage.classList.remove('active');
-                }, 600);
-            }, 7500);
-        });
-    </script>
-</body>
-</html>
+        
