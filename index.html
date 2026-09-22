@@ -33,7 +33,7 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* تنسيق الصفحة الأولى البيضاء الخاصة بالمولد */
+        /* تنسيق الصفحة الأولى البيضاء الخاصة بالمولد (خانات نظيفة) */
         #generator-screen {
             position: fixed;
             top: 0;
@@ -270,35 +270,35 @@
 </head>
 <body>
 
-    <!-- الصفحة الأولى البيضاء لتخصيص الدعوة بسهولة -->
+    <!-- الصفحة الأولى البيضاء لتخصيص الدعوة (خانات نظيفة) -->
     <div id="generator-screen">
         <div class="w-full max-w-md p-6 bg-white rounded-2xl shadow-xl border border-gray-100">
             <h1 class="text-xl font-bold text-center mb-6 text-gray-900">تخصيص بيانات الدعوة</h1>
             
             <form id="invite-form" class="space-y-4">
                 <div>
-                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم العريس (بالإنجليزية):</label>
-                    <input type="text" id="groom_name_input" value="Niger Hasooni" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم العريس:</label>
+                    <input type="text" id="groom_name_input" placeholder="أدخل اسم العريس هنا" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
                 
                 <div>
-                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم العروس (بالإنجليزية):</label>
-                    <input type="text" id="bride_name_input" value="Niggin Midi" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم العروس:</label>
+                    <input type="text" id="bride_name_input" placeholder="أدخل اسم العروس هنا" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
                 
                 <div>
-                    <label class="block text-sm mb-1 font-semibold text-gray-700">تاريخ ووقت الزواج (سهل الاختيار):</label>
-                    <input type="datetime-local" id="wedding_date_input" value="2026-09-25T05:00" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">تاريخ ووقت الزواج:</label>
+                    <input type="datetime-local" id="wedding_date_input" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
 
                 <div>
-                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم الموقع أو المدينة:</label>
-                    <input type="text" id="location_name_input" value="Makkah" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">اسم الموقع أو القاعة:</label>
+                    <input type="text" id="location_name_input" placeholder="مثال: قاعة الاحتفالات الكبرى" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
 
                 <div>
-                    <label class="block text-sm mb-1 font-semibold text-gray-700">رابط موقع الخريطة (Google Maps):</label>
-                    <input type="url" id="location_url_input" value="https://maps.app.goo.gl/6wWBru4JgbSsMHRZ7?g_st=ic" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">رابط الموقع (Google Maps):</label>
+                    <input type="url" id="location_url_input" placeholder="https://maps.app.goo.gl/..." required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
 
                 <button type="submit" class="w-full bg-black text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition duration-200 mt-4">
@@ -310,27 +310,27 @@
 
     <!-- 1. شاشة الفيديو الأولى -->
     <div id="video-page" class="screen-page active">
-        <img id="bg-image" src="IMG_0048.jpeg" alt="Background">
+        <img id="bg-image" src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/IMG_0048.jpeg" alt="Background">
         <button id="playBtn">press</button>
-        <video id="myVideo" src="2026-09-21 17:15:00.mov" playsinline webkit-playsinline preload="auto"></video>
+        <video id="myVideo" src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/2026-09-21%2017%3A15%3A00.mov" playsinline webkit-playsinline preload="auto"></video>
     </div>
 
     <!-- 2. شاشة الأسماء (IMG_0042.jpeg) -->
     <div id="names-page" class="screen-page">
-        <img src="IMG_0042.jpeg" alt="Background">
+        <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/IMG_0042.jpeg" alt="Background">
         <div id="couple-names">
-            <div class="name-top" id="n1">Niggin Midi</div>
+            <div class="name-top" id="n1"></div>
             <div class="name-and" id="n2">and</div>
-            <div class="name-bottom" id="n3">Niger Hasooni</div>
+            <div class="name-bottom" id="n3"></div>
         </div>
     </div>
 
-    <!-- 3. الشاشة الأخيرة -->
+    <!-- 3. الشاشة الأخيرة (الصورة الأخيرة المحددة) -->
     <div id="final-page" class="screen-page">
-        <img src="https://files.catbox.moe/3e9448.jpeg" alt="Final Image">
+        <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/FFF1FC39-7F20-41E0-B2BC-4A55FB5D634E.png" alt="Final Image">
 
         <div class="action-group">
-            <a id="final-map-btn" href="https://maps.app.goo.gl/6wWBru4JgbSsMHRZ7?g_st=ic" target="_blank" class="location-btn">
+            <a id="final-map-btn" href="#" target="_blank" class="location-btn">
                 <svg viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
@@ -368,12 +368,12 @@
         </div>
     </div>
 
-    <!-- الصوت الخارجي -->
-    <audio id="myAudio" src="%D9%86%D8%B4%D9%8A%D8%AF%20%D8%B2%D9%88%D8%A7%D8%AC.mp3" preload="auto"></audio>
+    <!-- الصوت الجديد Zafah.mp3 عبر رابط جيت هاب المباشر -->
+    <audio id="myAudio" src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/Zafah.mp3" preload="auto"></audio>
 
     <script>
-        let eventDate = new Date("2026-09-25T05:00:00").getTime();
-        let locationNameText = "Makkah";
+        let eventDate = new Date().getTime();
+        let locationNameText = "";
 
         // التعامل مع نموذج الإدخال وتحديث البيانات في كودك الأصلي
         document.getElementById('invite-form').addEventListener('submit', function(e) {
@@ -432,10 +432,9 @@
             const title = "Wedding Celebration";
             const description = "We are honored to have you join our special day!";
             
-            // تحويل التاريخ لـ ICS format
             const dObj = new Date(eventDate);
             const startTime = dObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-            const endDateObj = new Date(eventDate + 3 * 3600 * 1000); // إضافة 3 ساعات افتراضياً
+            const endDateObj = new Date(eventDate + 3 * 3600 * 1000);
             const endTime = endDateObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
 
             const icsLines = [
