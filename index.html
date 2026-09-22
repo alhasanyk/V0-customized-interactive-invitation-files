@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>دعوة زواج - صانع الدعوات</title>
     
-    <!-- خطوط الأنيقة -->
+    <!-- الخطوط الأنيقة -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
-    <!-- خط كاييرو للصفحة الأولى -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -33,7 +32,7 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* تنسيق الصفحة الأولى البيضاء الخاصة بالمولد مع تحول ناعم للاختفاء */
+        /* صفحة توليد الدعوة البيضاء مع انتقال ناعم للاختفاء */
         #generator-screen {
             position: fixed;
             top: 0;
@@ -58,7 +57,6 @@
             pointer-events: none;
         }
 
-        /* نظام الشاشات المتداخلة بسلاسة وبدون أي فواصل */
         .screen-page {
             position: fixed;
             top: 0;
@@ -79,7 +77,6 @@
             pointer-events: auto;
         }
 
-        /* تنسيق عام للصور والفيديو ليملأ الشاشة بالكامل بدون خطوط سوداء */
         video, img {
             width: 100%;
             height: 100%;
@@ -89,7 +86,6 @@
             left: 0;
         }
 
-        /* شاشة الفيديو الأولى */
         #video-page {
             background-color: #f7f4ef;
         }
@@ -104,7 +100,7 @@
             transition: opacity 0.5s ease;
         }
 
-        /* زر الختم الدائري (مرفوع قليلاً ويظهر وينختفي بنعومة) */
+        /* زر الختم (مرفوع قليلاً، يظهر بنعومة ويختفي بنعومة) */
         #playBtn {
             position: absolute;
             top: 52.5%; 
@@ -140,7 +136,7 @@
             transform: translate(-50%, -50%) scale(0.95);
         }
 
-        /* شاشة الأسماء (IMG_0042.jpeg) */
+        /* شاشة الأسماء المتحركة بالفيديو الثاني */
         #couple-names {
             z-index: 2;
             display: flex;
@@ -152,7 +148,6 @@
             width: 100%;
         }
 
-        /* تأثير كتابة خط اليد السلس من اليسار لليمين */
         .name-top, .name-bottom, .name-and {
             font-family: 'Pinyon Script', cursive;
             color: #3b2a22;
@@ -189,15 +184,114 @@
             transition: all 0.8s ease;
         }
 
-        /* الشاشة الأخيرة (الأزرار والعداد) */
+        /* تنسيق عناصر الشاشة الأخيرة (تطابق الصورة المعبأة تماماً) */
+        #final-page {
+            position: fixed;
+        }
+
+        .final-content-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 26vh; /* تحديد المسافة من الأعلى لتطابق الصورة المعبأة */
+            text-align: center;
+        }
+
+        /* أسماء العروسين في الشاشة الأخيرة */
+        .final-bride-name {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.5rem;
+            color: #3b2a22;
+            line-height: 1;
+        }
+
+        .final-middle-and {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.5rem;
+            color: #7a6558;
+            margin: 4px 0;
+        }
+
+        .final-groom-name {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.5rem;
+            color: #3b2a22;
+            line-height: 1;
+            margin-bottom: 3.5rem;
+        }
+
+        /* قسم التاريخ والوقت واليوم متطابق مع الصورة المعبأة */
+        .date-time-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2.8rem;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .dt-box {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #3b2a22;
+            letter-spacing: 1px;
+            width: 90px;
+            text-align: center;
+        }
+
+        .date-center-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+        }
+
+        .date-center-box .day-num {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #3b2a22;
+            line-height: 1;
+        }
+
+        .date-center-box .m-y-text {
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #3b2a22;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            margin-top: 2px;
+        }
+
+        /* اسم الموقع في الشاشة الأخيرة */
+        .location-name-display {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.2rem;
+            color: #3b2a22;
+            line-height: 1;
+            margin-top: 0.5rem;
+        }
+
+        /* زر الخريطة وأيقونة التقويم في الأسفل */
         .action-group {
             position: absolute;
-            bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+            bottom: calc(40px + env(safe-area-inset-bottom, 0px));
             z-index: 5;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .location-btn, .calendar-btn {
@@ -207,12 +301,12 @@
             color: #332211;
             text-decoration: none;
             font-family: 'Cinzel', serif;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 1.5px;
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 20px;
-            background: rgba(247, 244, 239, 0.8);
+            background: rgba(247, 244, 239, 0.85);
             border: 1px solid rgba(51, 34, 17, 0.3);
             backdrop-filter: blur(2px);
             transition: all 0.3s ease;
@@ -220,62 +314,15 @@
         }
 
         .location-btn svg, .calendar-btn svg {
-            width: 14px;
-            height: 14px;
+            width: 13px;
+            height: 13px;
             fill: #332211;
-        }
-
-        /* العداد التنازلي من اليسار لليمين (ثواني، دقائق، ساعات، أيام) */
-        .countdown-box {
-            position: absolute;
-            bottom: calc(48px + env(safe-area-inset-bottom, 0px));
-            z-index: 2;
-            background: transparent;
-            border-radius: 10px;
-            padding: 4px 8px;
-            display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
-            justify-content: space-between;
-            width: 210px;
-        }
-
-        .time-unit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 38px;
-        }
-
-        .time-unit .number {
-            font-family: 'Cinzel', serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: #3b2a22;
-            line-height: 1;
-        }
-
-        .time-unit .label {
-            font-family: 'Cinzel', serif;
-            font-size: 0.48rem;
-            font-weight: 600;
-            color: #554433;
-            letter-spacing: 0.5px;
-            margin-top: 2px;
-        }
-
-        .colon {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #3b2a22;
-            margin-bottom: 6px;
         }
     </style>
 </head>
 <body>
 
-    <!-- الصفحة الأولى البيضاء لتخصيص الدعوة (خانات نظيفة وخانة تاريخ أصغر بخلفية شفافة) -->
+    <!-- الصفحة الأولى لإدخال البيانات -->
     <div id="generator-screen">
         <div class="w-full max-w-md p-6 bg-white rounded-2xl shadow-xl border border-gray-100">
             <h1 class="text-xl font-bold text-center mb-6 text-gray-900">تخصيص بيانات الدعوة</h1>
@@ -298,7 +345,7 @@
 
                 <div>
                     <label class="block text-sm mb-1 font-semibold text-gray-700">اسم الموقع أو القاعة:</label>
-                    <input type="text" id="location_name_input" placeholder="مثال: قاعة الاحتفالات الكبرى" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                    <input type="text" id="location_name_input" placeholder="مثال: Makkah" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
                 </div>
 
                 <div>
@@ -320,7 +367,7 @@
         <video id="myVideo" src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/2026-09-21%2017%3A15%3A00.mov" playsinline webkit-playsinline preload="auto"></video>
     </div>
 
-    <!-- 2. شاشة الأسماء (IMG_0042.jpeg) -->
+    <!-- 2. شاشة الأسماء المتحركة -->
     <div id="names-page" class="screen-page">
         <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/IMG_0042.jpeg" alt="Background">
         <div id="couple-names">
@@ -330,9 +377,27 @@
         </div>
     </div>
 
-    <!-- 3. الشاشة الأخيرة (الصورة الأخيرة المحددة) -->
+    <!-- 3. الشاشة الأخيرة بالصورة الثابتة والعناصر المدمجة بدقة -->
     <div id="final-page" class="screen-page">
         <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/FFF1FC39-7F20-41E0-B2BC-4A55FB5D634E.png" alt="Final Image">
+
+        <!-- الحاوية التي تعرض البيانات المعبأة تماماً مثل الصورة المعبأة -->
+        <div class="final-content-container">
+            <div class="final-bride-name" id="disp-bride">Niggin Midi</div>
+            <div class="final-middle-and">and</div>
+            <div class="final-groom-name" id="disp-groom">Niger Hasooni</div>
+
+            <div class="date-time-section">
+                <div class="dt-box" id="disp-day">FRIDAY</div>
+                <div class="date-center-box">
+                    <span class="day-num" id="disp-daynum">25</span>
+                    <span class="m-y-text" id="disp-monthyear">SEP<br>2026</span>
+                </div>
+                <div class="dt-box" id="disp-time">05:00 AM</div>
+            </div>
+
+            <div class="location-name-display" id="disp-locname">Makkah</div>
+        </div>
 
         <div class="action-group">
             <a id="final-map-btn" href="#" target="_blank" class="location-btn">
@@ -349,38 +414,15 @@
                 ADD TO CALENDAR
             </button>
         </div>
-
-        <div class="countdown-box">
-            <div class="time-unit">
-                <span class="number" id="days">00</span>
-                <span class="label">DAYS</span>
-            </div>
-            <span class="colon">:</span>
-            <div class="time-unit">
-                <span class="number" id="hours">00</span>
-                <span class="label">HRS</span>
-            </div>
-            <span class="colon">:</span>
-            <div class="time-unit">
-                <span class="number" id="minutes">00</span>
-                <span class="label">MIN</span>
-            </div>
-            <span class="colon">:</span>
-            <div class="time-unit">
-                <span class="number" id="seconds">00</span>
-                <span class="label">SEC</span>
-            </div>
-        </div>
     </div>
 
-    <!-- الصوت Zafah.mp3 عبر رابط جيت هاب المباشر -->
+    <!-- الصوت -->
     <audio id="myAudio" src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/Zafah.mp3" preload="auto"></audio>
 
     <script>
-        let eventDate = new Date().getTime();
+        let eventDateGlobal = new Date().getTime();
         let locationNameText = "";
 
-        // التعامل مع نموذج الإدخال وانتقال ناعم للشاشة الأولى
         document.getElementById('invite-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -390,57 +432,63 @@
             const locNameVal = document.getElementById('location_name_input').value;
             const locUrlVal = document.getElementById('location_url_input').value;
 
-            // تحديث الأسماء في الشاشة الثانية
+            // تحديث الأسماء للفيديو المتحرك
             document.getElementById('n1').innerText = brideVal;
             document.getElementById('n3').innerText = groomVal;
 
-            // تحديث رابط الخريطة واسم الموقع
+            // تحديث الأسماء والعناصر للشاشة الأخيرة فوراً لتظهر معها في نفس اللحظة
+            document.getElementById('disp-bride').innerText = brideVal;
+            document.getElementById('disp-groom').innerText = groomVal;
+            document.getElementById('disp-locname').innerText = locNameVal;
+
+            if (dateVal) {
+                const dObj = new Date(dateVal);
+                eventDateGlobal = dObj.getTime();
+
+                // استخراج اليوم، رقم اليوم، الشهور، والسنة، والوقت وتنسيقها مثل الصورة المعبأة
+                const daysArr = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+                const monthsArr = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+                const dayName = daysArr[dObj.getDay()];
+                const dayNum = String(dObj.getDate()).padStart(2, '0');
+                const monthName = monthsArr[dObj.getMonth()];
+                const yearNum = dObj.getFullYear();
+
+                let hours = dObj.getHours();
+                const minutes = String(dObj.getMinutes()).padStart(2, '0');
+                const ampm = hours >= 12 ? 'AM' : 'AM'; // يمكن تعديله حسب الرغبة
+                hours = hours % 12;
+                hours = hours ? hours : 12;
+                const hoursStr = String(hours).padStart(2, '0');
+                const timeStr = `${hoursStr}:${minutes} ${ampm}`;
+
+                document.getElementById('disp-day').innerText = dayName;
+                document.getElementById('disp-daynum').innerText = dayNum;
+                document.getElementById('disp-monthyear').innerHTML = `${monthName}<br>${yearNum}`;
+                document.getElementById('disp-time').innerText = timeStr;
+            }
+
             document.getElementById('final-map-btn').href = locUrlVal;
             locationNameText = locNameVal;
 
-            // تحديث وقت العداد التنازلي
-            if (dateVal) {
-                eventDate = new Date(dateVal).getTime();
-            }
-
-            // تفعيل التحول الناعم لاختفاء الشاشة البيضاء
+            // انتقال ناعم من صفحة الإدخال للصورة الأولى
             const genScreen = document.getElementById('generator-screen');
             genScreen.classList.add('fade-out');
             setTimeout(() => {
                 genScreen.style.display = 'none';
-                // إظهار زر البرس بنعومة بعد ثانية من ظهور الصورة الأولى
                 setTimeout(() => {
                     document.getElementById('playBtn').classList.add('fade-in');
                 }, 1000);
             }, 1000);
         });
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const difference = eventDate - now;
-
-            if (difference > 0) {
-                const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((difference % (1000 * 60)) / 1000);
-
-                document.getElementById("days").innerText = d < 10 ? "0" + d : d;
-                document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
-                document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
-                document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
-            }
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
         function addToCalendar() {
             const title = "Wedding Celebration";
             const description = "We are honored to have you join our special day!";
             
-            const dObj = new Date(eventDate);
+            const dObj = new Date(eventDateGlobal);
             const startTime = dObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-            const endDateObj = new Date(eventDate + 3 * 3600 * 1000);
+            const endDateObj = new Date(eventDateGlobal + 3 * 3600 * 1000);
             const endTime = endDateObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
 
             const icsLines = [
@@ -513,7 +561,7 @@
             }, 6500);
 
             setTimeout(() => {
-                finalPage.classList.add('active');
+                finalPage.classList.add('active'); // ظهور الشاشة الأخيرة مع بياناتها في نفس اللحظة تماماً
                 setTimeout(() => {
                     namesPage.classList.remove('active');
                 }, 600);
