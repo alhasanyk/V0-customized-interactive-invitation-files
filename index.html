@@ -1,1115 +1,558 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>Wedding Invitation</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cinzel:wght@400;500;600&display=swap"
-      rel="stylesheet">
-
-
-<style>
-
-/* =========================
-   RESET
-========================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
-}
-
-body {
-    background: #f5f1ec;
-    color: #4b382c;
-    font-family: Arial, sans-serif;
-}
-
-
-/* =========================
-   FORM
-========================= */
-
-.form-container {
-    width: min(700px, calc(100% - 24px));
-    margin: 30px auto;
-
-    padding: 28px;
-
-    background: rgba(255,255,255,.97);
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 15px 50px rgba(0,0,0,.12);
-}
-
-.form-title {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.form-title h1 {
-    margin: 0 0 8px;
-
-    font-family: Cinzel, serif;
-
-    font-size: 25px;
-    font-weight: 500;
-}
-
-.form-title p {
-    margin: 0;
-
-    color: #8a7568;
-
-    font-size: 14px;
-}
-
-.form-grid {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 16px;
-}
-
-.field {
-    display: flex;
-    flex-direction: column;
-
-    gap: 7px;
-}
-
-.field.full {
-    grid-column: 1 / -1;
-}
-
-.field label {
-    font-size: 13px;
-
-    color: #604b3d;
-}
-
-.field input {
-    width: 100%;
-    height: 48px;
-
-    padding: 0 13px;
-
-    border: 1px solid #ddd3cb;
-    border-radius: 9px;
-
-    background: white;
-
-    font-size: 15px;
-
-    outline: none;
-}
-
-.field input:focus {
-    border-color: #8c6c56;
-
-    box-shadow:
-        0 0 0 3px rgba(140,108,86,.10);
-}
-
-
-/* =========================
-   CREATE BUTTON
-========================= */
-
-.create-button {
-    display: block;
-
-    width: 100%;
-    height: 52px;
-
-    margin-top: 22px;
-
-    border: 0;
-    border-radius: 9px;
-
-    background: #513a2c;
-
-    color: white;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    -webkit-appearance: none;
-    appearance: none;
-}
-
-.create-button:active {
-    transform: scale(.99);
-}
-
-
-/* =========================
-   INVITATION
-========================= */
-
-.invitation {
-    display: none;
-
-    width: 100%;
-}
-
-.invitation.show {
-    display: block;
-}
-
-
-/*
-   IMPORTANT
-
-   Original image ratio:
-   768 × 1365
-
-   The card always maintains
-   exactly the same ratio.
-*/
-
-.card {
-    position: relative;
-
-    width: 100%;
-
-    aspect-ratio: 768 / 1365;
-
-    overflow: hidden;
-
-    background: #eee;
-}
-
-
-/* =========================
-   IMAGE
-========================= */
-
-.card-image {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    /*
-       IMPORTANT:
-       NO CROPPING
-    */
-
-    object-fit: fill;
-
-    user-select: none;
-
-    -webkit-user-drag: none;
-}
-
-
-/* =========================
-   OVERLAY
-========================= */
-
-.overlay {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    pointer-events: none;
-}
-
-
-/* =========================
-   GENERAL ELEMENT
-========================= */
-
-.element {
-    position: absolute;
-
-    transform: translate(-50%, -50%);
-
-    text-align: center;
-
-    white-space: nowrap;
-
-    color: #4c382c;
-}
-
-
-/* =========================
-   BRIDE
-========================= */
-
-.bride-name {
-
-    left: 50%;
-
-    top: 45.64%;
-
-    font-family: Parisienne, cursive;
-
-    font-size: clamp(
-        34px,
-        6vw,
-        62px
-    );
-
-    line-height: 1;
-}
-
-
-/* =========================
-   AND
-========================= */
-
-.and {
-
-    left: 50%;
-
-    top: 41.76%;
-
-    font-family: Parisienne, cursive;
-
-    font-size: clamp(
-        20px,
-        3.5vw,
-        35px
-    );
-
-    color: #987b67;
-}
-
-
-/* =========================
-   GROOM
-========================= */
-
-.groom-name {
-
-    left: 50%;
-
-    top: 37.73%;
-
-    font-family: Parisienne, cursive;
-
-    font-size: clamp(
-        34px,
-        6vw,
-        62px
-    );
-
-    line-height: 1;
-}
-
-
-/* =========================
-   WEEKDAY
-========================= */
-
-.weekday {
-
-    left: 31%;
-
-    top: 59.93%;
-
-    font-family: Georgia, serif;
-
-    font-size: clamp(
-        13px,
-        2.2vw,
-        23px
-    );
-
-}
-
-
-/* =========================
-   DAY
-========================= */
-
-.day-number {
-
-    left: 50%;
-
-    top: 59.12%;
-
-    font-family: Georgia, serif;
-
-    font-size: clamp(
-        32px,
-        5vw,
-        53px
-    );
-
-    font-weight: 500;
-}
-
-
-/* =========================
-   MONTH
-========================= */
-
-.month {
-
-    left: 50%;
-
-    top: 62.05%;
-
-    font-family: Georgia, serif;
-
-    font-size: clamp(
-        14px,
-        2.3vw,
-        24px
-    );
-
-    letter-spacing: 1px;
-}
-
-
-/* =========================
-   YEAR
-========================= */
-
-.year {
-
-    left: 50%;
-
-    top: 64.25%;
-
-    font-family: Georgia, serif;
-
-    font-size: clamp(
-        12px,
-        2vw,
-        20px
-    );
-}
-
-
-/* =========================
-   TIME
-========================= */
-
-.time {
-
-    left: 69%;
-
-    top: 59.93%;
-
-    font-family: Georgia, serif;
-
-    font-size: clamp(
-        13px,
-        2.1vw,
-        22px
-    );
-}
-
-
-/* =========================
-   LOCATION ICON
-========================= */
-
-.location-icon {
-
-    left: 50%;
-
-    top: 65.86%;
-
-    font-size: clamp(
-        18px,
-        3vw,
-        30px
-    );
-
-    color: #856650;
-}
-
-
-/* =========================
-   LOCATION
-========================= */
-
-.location-name {
-
-    left: 50%;
-
-    top: 70.55%;
-
-    font-family: Parisienne, cursive;
-
-    font-size: clamp(
-        35px,
-        6vw,
-        65px
-    );
-
-    line-height: 1;
-
-    color: #4b3529;
-
-    text-decoration: none;
-}
-
-
-/* =========================
-   LOCATION SUBTITLE
-========================= */
-
-.location-subtitle {
-
-    left: 50%;
-
-    top: 73.35%;
-
-    font-family: Georgia, serif;
-
-    font-size: clamp(
-        14px,
-        2.5vw,
-        25px
-    );
-}
-
-
-/* =========================
-   EDIT
-========================= */
-
-.edit-wrapper {
-
-    padding: 18px 20px 25px;
-
-    background: #f5f1ec;
-
-    text-align: center;
-}
-
-.edit-button {
-
-    width: min(300px, 90%);
-
-    height: 48px;
-
-    border: none;
-
-    border-radius: 9px;
-
-    background: #513a2c;
-
-    color: white;
-
-    font-size: 14px;
-
-    cursor: pointer;
-}
-
-
-/* =========================
-   MOBILE FORM
-========================= */
-
-@media (max-width: 600px) {
-
-    .form-container {
-
-        width: calc(100% - 20px);
-
-        margin: 10px auto;
-
-        padding: 20px 16px;
-    }
-
-    .form-grid {
-
-        grid-template-columns: 1fr;
-    }
-
-    .field.full {
-
-        grid-column: auto;
-    }
-
-    .form-title h1 {
-
-        font-size: 21px;
-    }
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<!-- ==================================================
-     FORM
-================================================== -->
-
-<div
-    id="formContainer"
-    class="form-container"
->
-
-    <div class="form-title">
-
-        <h1>
-            إنشاء بطاقة دعوة زواج
-        </h1>
-
-        <p>
-            أدخل البيانات الخاصة بالدعوة
-        </p>
-
-    </div>
-
-
-    <div class="form-grid">
-
-
-        <!-- BRIDE -->
-
-        <div class="field">
-
-            <label>
-                اسم العروس
-            </label>
-
-            <input
-                id="brideInput"
-                type="text"
-                placeholder="Niggin Midi"
-            >
-
-        </div>
-
-
-        <!-- GROOM -->
-
-        <div class="field">
-
-            <label>
-                اسم العريس
-            </label>
-
-            <input
-                id="groomInput"
-                type="text"
-                placeholder="Niger Hasooni"
-            >
-
-        </div>
-
-
-        <!-- DATE -->
-
-        <div class="field">
-
-            <label>
-                التاريخ
-            </label>
-
-            <input
-                id="dateInput"
-                type="date"
-            >
-
-        </div>
-
-
-        <!-- TIME -->
-
-        <div class="field">
-
-            <label>
-                الوقت
-            </label>
-
-            <input
-                id="timeInput"
-                type="time"
-                value="05:00"
-            >
-
-        </div>
-
-
-        <!-- LOCATION -->
-
-        <div class="field full">
-
-            <label>
-                الموقع
-            </label>
-
-            <input
-                id="locationInput"
-                type="text"
-                placeholder="Makkah"
-            >
-
-        </div>
-
-
-        <!-- GOOGLE MAPS -->
-
-        <div class="field full">
-
-            <label>
-                رابط خرائط Google
-            </label>
-
-            <input
-                id="mapsInput"
-                type="url"
-                placeholder="https://maps.google.com/..."
-            >
-
-        </div>
-
-    </div>
-
-
-    <!--
-       IMPORTANT:
-       onclick is directly attached.
-       This avoids event-listener problems.
-    -->
-
-    <button
-        type="button"
-        class="create-button"
-        onclick="createInvitation()"
-    >
-        إنشاء البطاقة
-    </button>
-
-</div>
-
-
-
-<!-- ==================================================
-     INVITATION
-================================================== -->
-
-<div
-    id="invitation"
-    class="invitation"
->
-
-
-    <div class="card">
-
-
-        <!-- IMAGE -->
-
-        <img
-            class="card-image"
-            src="https://files.catbox.moe/hkkl4a.png"
-            alt="Wedding Invitation"
-        >
-
-
-        <!-- OVERLAY -->
-
-        <div class="overlay">
-
-
-            <!-- GROOM -->
-
-            <div
-                id="groomOutput"
-                class="element groom-name"
-            ></div>
-
-
-            <!-- AND -->
-
-            <div
-                class="element and"
-            >
-                and
-            </div>
-
-
-            <!-- BRIDE -->
-
-            <div
-                id="brideOutput"
-                class="element bride-name"
-            ></div>
-
-
-            <!-- WEEKDAY -->
-
-            <div
-                id="weekdayOutput"
-                class="element weekday"
-            ></div>
-
-
-            <!-- DAY -->
-
-            <div
-                id="dayOutput"
-                class="element day-number"
-            ></div>
-
-
-            <!-- MONTH -->
-
-            <div
-                id="monthOutput"
-                class="element month"
-            ></div>
-
-
-            <!-- YEAR -->
-
-            <div
-                id="yearOutput"
-                class="element year"
-            ></div>
-
-
-            <!-- TIME -->
-
-            <div
-                id="timeOutput"
-                class="element time"
-            ></div>
-
-
-            <!-- LOCATION ICON -->
-
-            <div
-                class="element location-icon"
-            >
-                ♥
-            </div>
-
-
-            <!-- LOCATION -->
-
-            <a
-                id="locationOutput"
-                class="element location-name"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-            ></a>
-
-
-            <!-- SUBTITLE -->
-
-            <div
-                class="element location-subtitle"
-            >
-                City of Grace and Devotion
-            </div>
-
-
-        </div>
-
-    </div>
-
-
-    <!-- EDIT -->
-
-    <div class="edit-wrapper">
-
-        <button
-            type="button"
-            class="edit-button"
-            onclick="editInvitation()"
-        >
-            تعديل البيانات
-        </button>
-
-    </div>
-
-</div>
-
-
-
-<script>
-
-/* ==================================================
-   CREATE INVITATION
-================================================== */
-
-function createInvitation() {
-
-    /* Get values */
-
-    var bride =
-        document.getElementById("brideInput").value.trim();
-
-    var groom =
-        document.getElementById("groomInput").value.trim();
-
-    var date =
-        document.getElementById("dateInput").value;
-
-    var time =
-        document.getElementById("timeInput").value;
-
-    var location =
-        document.getElementById("locationInput").value.trim();
-
-    var maps =
-        document.getElementById("mapsInput").value.trim();
-
-
-    /* Names */
-
-    if (bride === "") {
-
-        alert("يرجى إدخال اسم العروس");
-
-        return;
-    }
-
-
-    if (groom === "") {
-
-        alert("يرجى إدخال اسم العريس");
-
-        return;
-    }
-
-
-    if (date === "") {
-
-        alert("يرجى اختيار التاريخ");
-
-        return;
-    }
-
-
-    if (location === "") {
-
-        alert("يرجى إدخال الموقع");
-
-        return;
-    }
-
-
-    /* ==============================================
-       PUT NAMES ON CARD
-    ============================================== */
-
-    document.getElementById(
-        "brideOutput"
-    ).textContent = bride;
-
-
-    document.getElementById(
-        "groomOutput"
-    ).textContent = groom;
-
-
-    /* ==============================================
-       DATE
-    ============================================== */
-
-    var d =
-        new Date(date + "T12:00:00");
-
-
-    var days = [
-        "SUNDAY",
-        "MONDAY",
-        "TUESDAY",
-        "WEDNESDAY",
-        "THURSDAY",
-        "FRIDAY",
-        "SATURDAY"
-    ];
-
-
-    var months = [
-        "JAN",
-        "FEB",
-        "MAR",
-        "APR",
-        "MAY",
-        "JUN",
-        "JUL",
-        "AUG",
-        "SEP",
-        "OCT",
-        "NOV",
-        "DEC"
-    ];
-
-
-    document.getElementById(
-        "weekdayOutput"
-    ).textContent =
-        days[d.getDay()];
-
-
-    document.getElementById(
-        "dayOutput"
-    ).textContent =
-        d.getDate();
-
-
-    document.getElementById(
-        "monthOutput"
-    ).textContent =
-        months[d.getMonth()];
-
-
-    document.getElementById(
-        "yearOutput"
-    ).textContent =
-        d.getFullYear();
-
-
-    /* ==============================================
-       TIME
-    ============================================== */
-
-    var formattedTime = "";
-
-    if (time !== "") {
-
-        var parts = time.split(":");
-
-        var hour =
-            parseInt(parts[0], 10);
-
-        var minute =
-            parts[1];
-
-        var ampm =
-            hour >= 12 ? "PM" : "AM";
-
-        hour =
-            hour % 12;
-
-        if (hour === 0) {
-            hour = 12;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Wedding Invitation - Generator</title>
+    
+    <!-- الخطوط الأنيقة -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        formattedTime =
-            String(hour).padStart(2, "0")
-            + ":"
-            + minute
-            + " "
-            + ampm;
-    }
+        :root {
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
 
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #f7f4ef;
+            overflow: hidden;
+            font-family: 'Cinzel', serif;
+        }
 
-    document.getElementById(
-        "timeOutput"
-    ).textContent =
-        formattedTime;
+        /* صفحة توليد الدعوة باللغة الإنجليزية */
+        #generator-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #ffffff;
+            z-index: 99999;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: 'Cairo', sans-serif;
+            direction: ltr;
+            text-align: left;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
 
+        #generator-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
 
-    /* ==============================================
-       LOCATION
-    ============================================== */
+        .screen-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1.2s ease-in-out;
+            background-color: #f7f4ef;
+        }
 
-    var locationElement =
-        document.getElementById(
-            "locationOutput"
-        );
+        .screen-page.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
+        video, img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-    locationElement.textContent =
-        location;
+        #video-page {
+            background-color: #f7f4ef;
+        }
+        
+        #bg-image {
+            z-index: 1;
+        }
 
+        #myVideo {
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
 
-    /* ==============================================
-       GOOGLE MAPS
-    ============================================== */
+        /* زر الختم */
+        #playBtn {
+            position: absolute;
+            top: 51.5%; 
+            left: 50.2%; 
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            width: 105px;  
+            height: 105px;
+            background: transparent;
+            border: 2px solid rgba(245, 235, 220, 0.75);
+            color: #fcf8f2;
+            font-size: 32px; 
+            font-family: 'Great Vibes', cursive;
+            letter-spacing: 1px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.4s ease, background 0.3s;
+        }
 
-    if (maps !== "") {
+        #playBtn.fade-in {
+            opacity: 1;
+        }
 
-        locationElement.href = maps;
+        #playBtn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        #playBtn:active {
+            transform: translate(-50%, -50%) scale(0.95);
+        }
 
-    } else {
+        /* شاشة الأسماء المتحركة بالفيديو الثاني */
+        #couple-names {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            width: 100%;
+        }
 
-        locationElement.href =
-            "https://www.google.com/maps/search/?api=1&query="
-            +
-            encodeURIComponent(location);
-    }
+        .name-top, .name-bottom, .name-and {
+            font-family: 'Pinyon Script', cursive;
+            color: #3b2a22;
+            white-space: nowrap;
+            clip-path: inset(0 100% 0 0);
+            transition: clip-path 2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, transform 0.8s ease, filter 0.8s ease;
+        }
 
+        .name-top {
+            font-size: 2.8rem;
+            line-height: 1.1;
+        }
 
-    /* ==============================================
-       SHOW INVITATION
-    ============================================== */
+        .name-and {
+            font-size: 2rem;
+            color: #7a6558;
+            margin: 6px auto;
+            letter-spacing: 2px;
+        }
 
-    document.getElementById(
-        "formContainer"
-    ).style.display = "none";
+        .name-bottom {
+            font-size: 2.8rem;
+            line-height: 1.1;
+        }
 
+        .name-top.writing, .name-and.writing, .name-bottom.writing {
+            clip-path: inset(0 0% 0 0);
+        }
 
-    document.getElementById(
-        "invitation"
-    ).classList.add("show");
+        .name-top.hide, .name-and.hide, .name-bottom.hide {
+            opacity: 0;
+            transform: scale(0.9);
+            filter: blur(8px);
+            transition: all 0.8s ease;
+        }
 
+        /* الشاشة الأخيرة */
+        #final-page {
+            position: fixed;
+        }
 
-    /* Go to top */
+        .final-content-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 36vh;
+            text-align: center;
+            transform: translateX(-6px);
+        }
 
-    window.scrollTo(0, 0);
-}
+        .final-bride-name {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2rem;
+            color: #3b2a22;
+            line-height: 1;
+        }
 
+        .final-groom-name {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2rem;
+            color: #3b2a22;
+            line-height: 1;
+            margin-top: 15px;
+            margin-bottom: 2rem;
+        }
 
-/* ==================================================
-   EDIT INVITATION
-================================================== */
+        /* قسم التاريخ والوقت واليوم */
+        .date-time-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1.8rem;
+            width: 85%;
+            max-width: 380px;
+        }
 
-function editInvitation() {
+        .dt-box {
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #3b2a22;
+            letter-spacing: 0.5px;
+            width: 100px;
+            text-align: center;
+            white-space: nowrap;
+        }
 
-    document.getElementById(
-        "invitation"
-    ).classList.remove("show");
+        .date-center-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+        }
 
+        .date-center-box .day-num {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #3b2a22;
+            line-height: 1;
+        }
 
-    document.getElementById(
-        "formContainer"
-    ).style.display = "block";
+        .date-center-box .m-y-text {
+            font-family: 'Cinzel', serif;
+            font-size: 0.55rem;
+            font-weight: 600;
+            color: #3b2a22;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            margin-top: 2px;
+            text-align: center;
+        }
 
+        /* اسم الموقع */
+        .location-name-display {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.7rem;
+            color: #3b2a22;
+            line-height: 1;
+            margin-top: 0.8rem;
+        }
 
-    window.scrollTo(0, 0);
-}
+        /* مجموعة الأزرار */
+        .action-group {
+            position: absolute;
+            bottom: calc(75px + env(safe-area-inset-bottom, 0px));
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
 
-</script>
+        .location-btn, .calendar-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #332211;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 9px 16px;
+            border-radius: 20px;
+            background: rgba(247, 244, 239, 0.95);
+            border: 1px solid rgba(51, 34, 17, 0.3);
+            backdrop-filter: blur(2px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- صفحة إدخال البيانات باللغة الإنجليزية -->
+    <div id="generator-screen">
+        <div class="w-full max-w-md p-6 bg-white rounded-2xl shadow-xl border border-gray-100">
+            <h1 class="text-xl font-bold text-center mb-6 text-gray-900">Customize Invitation Details</h1>
+            
+            <form id="invite-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">Groom's Name:</label>
+                    <input type="text" id="groom_name_input" placeholder="e.g. Hasan" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                </div>
+                
+                <div>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">Bride's Name:</label>
+                    <input type="text" id="bride_name_input" placeholder="e.g. Midi" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                </div>
+                
+                <div>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">Wedding Date & Time:</label>
+                    <input type="datetime-local" id="wedding_date_input" required class="w-full bg-transparent border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:border-black">
+                </div>
 
+                <div>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">Location / Venue Name:</label>
+                    <input type="text" id="location_name_input" placeholder="e.g. Jeddah" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                </div>
+
+                <div>
+                    <label class="block text-sm mb-1 font-semibold text-gray-700">Google Maps URL:</label>
+                    <input type="url" id="location_url_input" placeholder="https://maps.app.goo.gl/..." required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-black">
+                </div>
+
+                <button type="submit" class="w-full bg-black text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition duration-200 mt-4">
+                    Create Invitation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 1. شاشة الفيديو الأولى -->
+    <div id="video-page" class="screen-page active">
+        <img id="bg-image" src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/IMG_0048.jpeg" alt="Background">
+        <button id="playBtn">press</button>
+        <video id="myVideo" src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/2026-09-21%2017%3A15%3A00.mov" playsinline webkit-playsinline preload="auto"></video>
+    </div>
+
+    <!-- 2. شاشة الأسماء المتحركة -->
+    <div id="names-page" class="screen-page">
+        <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/IMG_0042.jpeg" alt="Background">
+        <div id="couple-names">
+            <div class="name-top" id="n1"></div>
+            <div class="name-and" id="n2">and</div>
+            <div class="name-bottom" id="n3"></div>
+        </div>
+    </div>
+
+    <!-- 3. الشاشة الأخيرة بدون كلمة and -->
+    <div id="final-page" class="screen-page">
+        <img src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/FFF1FC39-7F20-41E0-B2BC-4A55FB5D634E.png" alt="Final Image">
+
+        <div class="final-content-container">
+            <div class="final-bride-name" id="disp-bride">Midi</div>
+            <div class="final-groom-name" id="disp-groom">Hasan</div>
+
+            <div class="date-time-section">
+                <div class="dt-box" id="disp-time">PM 02:32</div>
+                <div class="date-center-box">
+                    <span class="day-num" id="disp-daynum">22</span>
+                    <span class="m-y-text" id="disp-monthyear">SEP<br>2026</span>
+                </div>
+                <div class="dt-box" id="disp-day">TUESDAY</div>
+            </div>
+
+            <div class="location-name-display" id="disp-locname">Jeddah</div>
+        </div>
+
+        <div class="action-group">
+            <a id="final-map-btn" href="#" target="_blank" class="location-btn">
+                LOCATION
+            </a>
+
+            <button class="calendar-btn" onclick="addToCalendar()">
+                ADD TO CALENDAR
+            </button>
+        </div>
+    </div>
+
+    <!-- الصوت -->
+    <audio id="myAudio" src="https://raw.githubusercontent.com/alhasanyk/V0-customized-interactive-invitation-files/refs/heads/main/Zafah.mp3" preload="auto"></audio>
+
+    <script>
+        let eventDateGlobal = new Date().getTime();
+        let locationNameText = "";
+
+        document.getElementById('invite-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const groomVal = document.getElementById('groom_name_input').value;
+            const brideVal = document.getElementById('bride_name_input').value;
+            const dateVal = document.getElementById('wedding_date_input').value;
+            const locNameVal = document.getElementById('location_name_input').value;
+            const locUrlVal = document.getElementById('location_url_input').value;
+
+            document.getElementById('n1').innerText = brideVal;
+            document.getElementById('n3').innerText = groomVal;
+
+            document.getElementById('disp-bride').innerText = brideVal;
+            document.getElementById('disp-groom').innerText = groomVal;
+            document.getElementById('disp-locname').innerText = locNameVal;
+
+            if (dateVal) {
+                const dObj = new Date(dateVal);
+                eventDateGlobal = dObj.getTime();
+
+                const daysArr = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+                const monthsArr = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+                const dayName = daysArr[dObj.getDay()];
+                const dayNum = String(dObj.getDate()).padStart(2, '0');
+                const monthName = monthsArr[dObj.getMonth()];
+                const yearNum = dObj.getFullYear();
+
+                let hours = dObj.getHours();
+                const minutes = String(dObj.getMinutes()).padStart(2, '0');
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12;
+                hours = hours ? hours : 12;
+                const hoursStr = String(hours).padStart(2, '0');
+                const timeStr = `${ampm} ${hoursStr}:${minutes}`;
+
+                document.getElementById('disp-day').innerText = dayName;
+                document.getElementById('disp-daynum').innerText = dayNum;
+                document.getElementById('disp-monthyear').innerHTML = `${monthName}<br>${yearNum}`;
+                document.getElementById('disp-time').innerText = timeStr;
+            }
+
+            document.getElementById('final-map-btn').href = locUrlVal;
+            locationNameText = locNameVal;
+
+            const genScreen = document.getElementById('generator-screen');
+            genScreen.classList.add('fade-out');
+            setTimeout(() => {
+                genScreen.style.display = 'none';
+                setTimeout(() => {
+                    document.getElementById('playBtn').classList.add('fade-in');
+                }, 500);
+            }, 1000);
+        });
+
+        function addToCalendar() {
+            const title = "Wedding Celebration";
+            const description = "We are honored to have you join our special day!";
+            
+            const dObj = new Date(eventDateGlobal);
+            const startTime = dObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+            const endDateObj = new Date(eventDateGlobal + 3 * 3600 * 1000);
+            const endTime = endDateObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+
+            const icsLines = [
+                "BEGIN:VCALENDAR",
+                "VERSION:2.0",
+                "PRODID:-//Wedding Invitation//EN",
+                "BEGIN:VEVENT",
+                "UID:" + Date.now() + "@wedding.invitation",
+                "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z",
+                "DTSTART:" + startTime,
+                "DTEND:" + endTime,
+                "SUMMARY:" + title,
+                "DESCRIPTION:" + description,
+                "LOCATION:" + locationNameText,
+                "END:VEVENT",
+                "END:VCALENDAR"
+            ];
+
+            const icsBlob = new Blob([icsLines.join("\r\n")], { type: "text/calendar;charset=utf-8" });
+            const downloadUrl = URL.createObjectURL(icsBlob);
+            
+            const anchor = document.createElement("a");
+            anchor.href = downloadUrl;
+            anchor.setAttribute("download", "wedding-invitation.ics");
+            document.body.appendChild(anchor);
+            anchor.click();
+            document.body.removeChild(anchor);
+            URL.revokeObjectURL(downloadUrl);
+        }
+
+        const video = document.getElementById('myVideo');
+        const audio = document.getElementById('myAudio');
+        const playBtn = document.getElementById('playBtn');
+        const videoPage = document.getElementById('video-page');
+        const namesPage = document.getElementById('names-page');
+        const finalPage = document.getElementById('final-page');
+
+        playBtn.addEventListener('click', () => {
+            playBtn.style.opacity = '0';
+            setTimeout(() => playBtn.style.display = 'none', 300);
+
+            video.currentTime = 5;
+            video.style.opacity = '1';
+
+            video.play().then(() => {
+                // بدأ التشغيل بنجاح
+            }).catch(error => {
+                console.log("Autoplay prevented, retrying...", error);
+                playBtn.style.display = 'flex';
+                playBtn.style.opacity = '1';
+            });
+        });
+
+        video.addEventListener('ended', () => {
+            audio.play().catch(error => {
+                console.log("Audio play error:", error);
+            });
+
+            namesPage.classList.add('active');
+            setTimeout(() => {
+                videoPage.classList.remove('active');
+            }, 600);
+
+            setTimeout(() => document.getElementById('n1').classList.add('writing'), 400);
+            setTimeout(() => document.getElementById('n2').classList.add('writing'), 2200);
+            setTimeout(() => document.getElementById('n3').classList.add('writing'), 3200);
+
+            setTimeout(() => {
+                document.getElementById('n1').classList.add('hide');
+                document.getElementById('n2').classList.add('hide');
+                document.getElementById('n3').classList.add('hide');
+            }, 6500);
+
+            setTimeout(() => {
+                finalPage.classList.add('active');
+                setTimeout(() => {
+                    namesPage.classList.remove('active');
+                }, 600);
+            }, 7500);
+        });
+    </script>
 </body>
 </html>
